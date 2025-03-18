@@ -5,12 +5,10 @@ CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
 # Install .NET SDK
-
-apt-get update && apt-get install -y dotnet-sdk-9.0
-
+sudo apt-get update && sudo  apt-get install -y dotnet-sdk-9.0
 
 # Install .NET Runtime v7.0
-apt-get update && apt-get install -y aspnetcore-runtime-9.0
+sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-9.0
 
 
 
