@@ -6,15 +6,9 @@ ENV_DIR=${3:-}
 
 # Injecting the environment file at build time.
 cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json 
-cp $ENV_DIR/account $BUILD_DIR/galaxy-technical_account.json
+
 
 # Build app
 echo "Building app..."
-dotnet publish $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary -c Release && echo "Successfully built app !"
+dotnet build -c Release && echo "Successfully built app !"
 
-cat <<EOF >"${BUILD_DIR}/start.sh"
-cd bin/Release/net7.0/publish
-dotnet Galaxy_back.dll --urls=http://0.0.0.0:\$PORT/
-EOF
-
-chmod +x "${BUILD_DIR}/start.sh"
