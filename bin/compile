@@ -4,9 +4,6 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-# Injecting the environment file at build time.
-cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json 
-
 
 # Build app
 echo "Building app..."
